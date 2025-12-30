@@ -9,17 +9,17 @@ from ultralytics.utils import LOGGER
 from datetime import datetime
 
 # --- CONFIGURATION ---
-MODEL_PATH = 'models/bs11n.pt'      
+MODEL = 'yolo11n'
+MODEL_PATH = 'models/'+ MODEL + '.pt'      
 CONFIG_PATH = 'object_config.json'  
 FOCAL_LENGTH = 600.0                
 SAVE_FRAMES = True                  
 SHOW_PREVIEW = True                 
 
-INFERENCE_SIZE = 320  
+INFERENCE_SIZE = 224 
 CONF_THRESHOLD = 0.5  
 
 def setup_performance():
-    """Applies performance tweaks found in the repo."""ow
     LOGGER.setLevel("ERROR")
 
 def load_object_config(path):
@@ -157,7 +157,7 @@ def main():
     
     print("-" * 30)
     print("Optimization Summary:")
-    print(f"Inference Size: {INFERENCE_SIZE}px (Repo uses 224/320)")
+    print(f"Inference Size: {INFERENCE_SIZE}px")
     print(f"Conf Threshold: {CONF_THRESHOLD}")
     print(f"Total time: {elapsed_time:.2f}s")
     print(f"AVERAGE FPS: {avg_fps:.2f}")
